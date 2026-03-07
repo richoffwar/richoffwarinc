@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RichoffWarInc — Arm Your Mind. Elevate Your Empire.</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#FFD700;--gold2:#FFA500;--red:#C8102E;
+  --dark:#080808;--surface:#0e0e0e;--surface2:#141414;--surface3:#1a1a1a;
+  --border:#1e1e1e;--border2:#2a2a2a;--text:#F0F0F0;--muted:#555;
+  --green:#00FF88;--discord:#5865F2;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);font-family:'Rajdhani',sans-serif;color:var(--text);overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,0.97);border-bottom:1px solid rgba(255,215,0,0.07);backdrop-filter:blur(10px)}
+.nav-brand{font-family:'Black Ops One',cursive;font-size:20px;color:#fff;text-decoration:none}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:600px){nav{padding:14px 18px}.nav-links{gap:14px}.nav-links li:nth-child(n+4){display:none}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 40%,rgba(255,215,0,0.06) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 85% 85%,rgba(200,16,46,0.05) 0%,transparent 60%),repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,215,0,0.01) 60px,rgba(255,215,0,0.01) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,215,0,0.01) 60px,rgba(255,215,0,0.01) 61px)}
+.hero-content{position:relative;max-width:900px}
+.hero-eyebrow{font-family:'Orbitron',monospace;font-size:10px;letter-spacing:8px;color:var(--gold);margin-bottom:20px;opacity:0;animation:riseIn .8s ease forwards .2s}
+.hero-title{font-family:'Black Ops One',cursive;font-size:clamp(52px,11vw,108px);line-height:.92;color:#fff;text-shadow:0 0 100px rgba(255,215,0,0.2);margin-bottom:10px;opacity:0;animation:riseIn .8s ease forwards .4s}
+.hero-title .g{color:var(--gold)}
+.hero-sub{font-family:'Black Ops One',cursive;font-size:clamp(16px,4vw,38px);color:rgba(255,255,255,0.1);letter-spacing:7px;margin-bottom:30px;opacity:0;animation:riseIn .8s ease forwards .55s}
+.hero-desc{font-size:17px;font-weight:300;color:#999;max-width:540px;margin:0 auto 48px;line-height:1.75;opacity:0;animation:riseIn .8s ease forwards .7s}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:riseIn .8s ease forwards .85s}
+.btn{font-family:'Black Ops One',cursive;font-size:12px;letter-spacing:2px;padding:16px 34px;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;border:none}
+.btn-gold{background:var(--gold);color:#000}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,215,0,.3)}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid rgba(255,215,0,.35)}
+.btn-outline:hover{border-color:var(--gold);background:rgba(255,215,0,.05);transform:translateY(-2px)}
+.btn-green{background:transparent;color:var(--green);border:1px solid rgba(0,255,136,.35)}
+.btn-green:hover{border-color:var(--green);background:rgba(0,255,136,.05);transform:translateY(-2px)}
+.btn-discord{background:var(--discord);color:#fff;font-size:11px}
+.btn-discord:hover{background:#4752c4;transform:translateY(-2px);box-shadow:0 8px 28px rgba(88,101,242,.35)}
+.lto-strip{background:var(--red);padding:13px;text-align:center;position:relative;overflow:hidden}
+.lto-strip::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(0,0,0,.1) 8px,rgba(0,0,0,.1) 16px)}
+.lto-strip p{font-family:'Black Ops One',cursive;font-size:12px;letter-spacing:4px;color:#fff;position:relative}
+.lto-strip span{color:var(--gold)}
+section{padding:96px 24px}
+.si{max-width:1040px;margin:0 auto}
+.sl{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.st{font-family:'Black Ops One',cursive;font-size:clamp(28px,5vw,48px);color:#fff;margin-bottom:14px;line-height:1.1}
+.sd{font-size:16px;color:#666;max-width:520px;line-height:1.7;margin-bottom:52px}
+#community{background:var(--surface)}
+.discord-card{padding:36px 32px;border-radius:4px;border:1px solid var(--border2);max-width:520px;transition:transform .25s,box-shadow .25s;background:linear-gradient(135deg,#1a1c2e 0%,#0d0f1a 100%);border-top:3px solid var(--discord)}
+.discord-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(88,101,242,.15)}
+.dc-icon{font-size:40px;margin-bottom:16px;display:block}
+.dc-name{font-family:'Black Ops One',cursive;font-size:22px;color:#fff;margin-bottom:8px}
+.dc-desc{font-size:15px;color:#777;line-height:1.6;margin-bottom:28px}
+.step-flow{display:flex;flex-wrap:wrap;margin-bottom:52px;position:relative}
+.step-flow::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(255,215,0,.2));z-index:0}
+.step{flex:1;min-width:160px;text-align:center;position:relative;z-index:1;padding:0 12px}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--dark);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:var(--gold)}
+.step-title{font-family:'Black Ops One',cursive;font-size:14px;color:#fff;margin-bottom:6px}
+.step-desc{font-size:13px;color:#555;line-height:1.5}
+@media(max-width:600px){.step-flow::before{display:none}.step{min-width:100%;margin-bottom:24px}}
+#courses{background:var(--dark)}
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.course-card{background:var(--surface2);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:4px;padding:30px 26px;position:relative;transition:transform .25s,box-shadow .25s}
+.course-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(255,215,0,.09)}
+.course-card.coming{border-top-color:var(--green);opacity:.85}
+.course-card.coming .cp{color:var(--green)}
+.cn{font-family:'Orbitron',monospace;font-size:9px;color:var(--muted);letter-spacing:3px;margin-bottom:14px}
+.ce{font-size:28px;margin-bottom:10px;display:block}
+.cname{font-family:'Black Ops One',cursive;font-size:18px;color:#fff;line-height:1.25;margin-bottom:14px}
+.cbadge{display:inline-block;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;padding:3px 9px;border-radius:2px;margin-bottom:16px}
+.badge-lto{background:rgba(200,16,46,.15);border:1px solid var(--red);color:#ff7088}
+.badge-soon{background:rgba(0,255,136,.08);border:1px solid var(--green);color:var(--green)}
+.badge-req{background:rgba(200,16,46,.15);border:1px solid var(--red);color:#ff7088}
+.cp{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;color:var(--gold)}
+.commission{font-family:'Orbitron',monospace;font-size:9px;color:#444;letter-spacing:2px;margin-top:6px}
+.commission span{color:var(--green)}
+.course-btn{display:block;margin-top:22px;background:transparent;border:1px solid rgba(255,215,0,.2);color:var(--gold);font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;padding:12px;text-align:center;cursor:pointer;border-radius:2px;text-transform:uppercase;transition:all .2s;text-decoration:none}
+.course-btn:hover{background:rgba(255,215,0,.06);border-color:var(--gold)}
+.course-btn.dis{opacity:.4;cursor:not-allowed;border-color:var(--green);color:var(--green)}
+.course-btn.dis:hover{background:transparent}
+.weekend-locked{background:#0a0a0a;border:1px solid #2a2a2a;border-radius:3px;padding:14px;text-align:center;margin-bottom:10px}
+.wl-label{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:var(--muted);margin-bottom:10px}
+.cd-wrap{display:flex;justify-content:center;gap:10px;align-items:center}
+.cd-block{text-align:center}
+.cd-num{font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:var(--gold);line-height:1}
+.cd-unit{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2px;color:#333;margin-top:3px}
+.cd-sep{font-family:'Orbitron',monospace;font-size:20px;color:#2a2a2a;line-height:1.3}
+.status-open{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;color:var(--green);margin:8px 0 6px}
+.status-locked{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;color:#ff4466;margin:8px 0 6px}
+#affiliate{background:var(--surface)}
+.aff-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:720px){.aff-grid{grid-template-columns:1fr;gap:40px}}
+.aff-box{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:26px 22px;margin-bottom:18px}
+.aff-box.green-b{border-left:3px solid var(--green)}
+.aff-box.gold-b{border-left:3px solid var(--gold)}
+.aff-box-title{font-family:'Black Ops One',cursive;font-size:16px;color:#fff;margin-bottom:8px}
+.aff-big{font-family:'Orbitron',monospace;font-size:44px;font-weight:900;color:var(--green);line-height:1;margin:10px 0 4px}
+.aff-sub-label{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:4px;color:#333;text-transform:uppercase}
+.aff-desc{font-size:14px;color:#555;line-height:1.6;margin-top:10px}
+.earn-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#555;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.earn-row:last-child{border-bottom:none}
+.earn-val{font-family:'Orbitron',monospace;color:var(--green);font-size:12px}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+.form-input,.form-select{width:100%;background:var(--surface2);border:1px solid var(--border2);border-radius:3px;padding:13px 15px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s;appearance:none}
+.form-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,215,0,.06)}
+.form-input.gi:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,255,136,.06)}
+.form-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,215,0,.06)}
+.form-select.gi:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,255,136,.06)}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;cursor:pointer}
+.form-select option{background:#111}
+.form-title{font-family:'Black Ops One',cursive;font-size:26px;color:#fff;margin-bottom:8px}
+.form-sub{font-size:15px;color:#555;margin-bottom:28px;line-height:1.6}
+.fbtn-gold{width:100%;background:var(--gold);color:#000;font-family:'Black Ops One',cursive;font-size:13px;letter-spacing:3px;padding:17px;border:none;border-radius:3px;cursor:pointer;transition:all .2s;margin-top:6px}
+.fbtn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,215,0,.25)}
+.fbtn-gold:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.fbtn-green{width:100%;background:var(--green);color:#000;font-family:'Black Ops One',cursive;font-size:13px;letter-spacing:3px;padding:17px;border:none;border-radius:3px;cursor:pointer;transition:all .2s;margin-top:6px}
+.fbtn-green:hover{background:#00e078;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,255,136,.25)}
+.fbtn-green:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.f-success{display:none;text-align:center;padding:36px 20px;border-radius:4px}
+.f-success.gold-s{background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.15)}
+.f-success.green-s{background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.15)}
+.f-success .si-icon{font-size:44px;margin-bottom:14px}
+.f-success h3{font-family:'Black Ops One',cursive;font-size:20px;margin-bottom:8px}
+.f-success.gold-s h3{color:var(--gold)}
+.f-success.green-s h3{color:var(--green)}
+.f-success p{color:#555;font-size:14px;line-height:1.6}
+.aff-dash{display:none}
+.aff-dash.on{display:block}
+.dash-welcome{font-family:'Black Ops One',cursive;font-size:20px;color:#fff;margin-bottom:18px}
+.dash-welcome span{color:var(--green)}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.dstat{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:18px 12px;text-align:center}
+.dstat-n{font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:var(--gold);margin-bottom:4px}
+.dstat-n.gn{color:var(--green)}
+.dstat-l{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:3px;color:#333;text-transform:uppercase}
+.dash-link-box{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:16px 18px;margin-bottom:14px}
+.dll{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:#333;margin-bottom:10px;text-transform:uppercase}
+.link-row{display:flex;gap:10px;align-items:center}
+.link-val{flex:1;background:#0a0a0a;border:1px solid var(--border2);border-radius:3px;padding:10px 12px;font-family:'Orbitron',monospace;font-size:10px;color:var(--green);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.copy-btn{background:var(--gold);color:#000;font-family:'Black Ops One',cursive;font-size:10px;letter-spacing:1px;padding:10px 16px;border:none;border-radius:3px;cursor:pointer;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.copy-btn:hover{background:var(--gold2)}
+.copy-btn.copied{background:var(--green)}
+.dash-refs{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;overflow:hidden}
+.dr-hdr{padding:12px 18px;border-bottom:1px solid var(--border);font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:#333;text-transform:uppercase}
+.dr-row{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.03)}
+.dr-row:last-child{border-bottom:none}
+.dr-name{font-size:15px;font-weight:600;color:#ccc}
+.dr-course{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:1px;color:#333;margin-top:2px}
+.dr-earn{font-family:'Orbitron',monospace;font-size:13px;color:var(--green);font-weight:700}
+.dr-empty{padding:26px 18px;text-align:center;color:#222;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px}
+#contact{background:var(--dark)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+@media(max-width:720px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+.ci-title{font-family:'Black Ops One',cursive;font-size:26px;color:#fff;margin-bottom:8px}
+.ci-sub{font-size:15px;color:#444;margin-bottom:28px;line-height:1.6}
+.c-items{display:flex;flex-direction:column;gap:12px}
+.c-item{display:flex;align-items:center;gap:15px;padding:16px 18px;background:var(--surface2);border:1px solid var(--border);border-left:2px solid var(--gold);border-radius:3px;text-decoration:none;transition:all .2s}
+.c-item:hover{background:var(--surface3);border-left-color:var(--gold2)}
+.c-icon{font-size:20px;min-width:32px;text-align:center}
+.c-label{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:var(--muted);margin-bottom:2px}
+.c-val{font-size:15px;font-weight:600;color:var(--text)}
+footer{background:#040404;border-top:1px solid var(--border);padding:48px 24px;text-align:center}
+.footer-brand{font-family:'Black Ops One',cursive;font-size:28px;color:#fff;margin-bottom:6px}
+.footer-brand span{color:var(--gold)}
+.footer-tag{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:5px;color:var(--muted);margin-bottom:24px}
+.footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.footer-links a{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:11px;color:#1a1a1a;letter-spacing:1px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(0,0,0,.25);border-top-color:#000;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px}
+.spinner-w{border-color:rgba(255,255,255,.25);border-top-color:#fff}
+@keyframes riseIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#home"><span>Richoff</span>WarInc</a>
+  <ul class="nav-links">
+    <li><a href="#community">Community</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#affiliate">Affiliates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Official Course Catalog — 2025</div>
+    <h1 class="hero-title"><span class="g">Richoff</span><br>WarInc</h1>
+    <div class="hero-sub">Empire Edition</div>
+    <p class="hero-desc">Premium knowledge systems engineered to elevate your mind, fortify your identity, and build your empire from the inside out. Join the community first — then enroll.</p>
+    <div class="hero-ctas">
+      <a href="#community" class="btn btn-gold">Join Community</a>
+      <a href="#courses" class="btn btn-outline">View Courses</a>
+      <a href="#affiliate" class="btn btn-green">Become Affiliate</a>
+    </div>
+  </div>
+</section>
+
+<div class="lto-strip">
+  <p>WEEKEND SPECIAL — <span>Believers Exodus Course $71.11</span> · Sat &amp; Sun Only · Affiliates earn <span>39%</span></p>
+</div>
+
+<section id="community">
+  <div class="si">
+    <div class="reveal">
+      <div class="sl">Step 1 — Required</div>
+      <h2 class="st">Join The Community First</h2>
+      <p class="sd">Discord membership is required before course enrollment. Join Meechland Inc to get access.</p>
+    </div>
+    <div class="step-flow reveal">
+      <div class="step"><div class="step-num">1</div><div class="step-title">Join Discord</div><div class="step-desc">Join Meechland Inc to get started</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-title">Pick A Course</div><div class="step-desc">Browse the full course lineup below</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title">Enroll</div><div class="step-desc">Submit your interest — we reach out directly</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-title">Earn</div><div class="step-desc">Refer others as an affiliate and collect 39%</div></div>
+    </div>
+    <div class="discord-card reveal">
+      <span class="dc-icon">🏴</span>
+      <div class="dc-name">Meechland Inc</div>
+      <div class="cbadge badge-req" style="margin-bottom:16px">Required for Enrollment</div>
+      <p class="dc-desc">The official RichoffWarInc headquarters. Get direct access, course updates, community support, and affiliate resources.</p>
+      <a href="https://discord.gg/sJ2vTn7QWp" target="_blank" rel="noopener" class="btn btn-discord">Join Meechland Inc</a>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="si">
+    <div class="reveal">
+      <div class="sl">The Arsenal</div>
+      <h2 class="st">Choose Your Weapon</h2>
+      <p class="sd">Every course is a tool. Every price is an investment. Affiliates earn 39% on every referral.</p>
+    </div>
+    <div class="courses-grid">
+
+      <div class="course-card reveal" id="exodusCard">
+        <div class="cn">01 / 05</div>
+        <span class="ce">🧘‍♂️🌋</span>
+        <div class="cname">Believers Exodus Course</div>
+        <div class="cbadge badge-lto">LTO Weekend Special</div>
+        <div class="cp">$71.11</div>
+        <div class="commission">Affiliate earns: <span>$27.73</span></div>
+        <div id="exodusOpen" style="display:none">
+          <div class="status-open">🟢 ENROLLMENT OPEN</div>
+          <a href="#contact" class="course-btn">Enroll Now</a>
+        </div>
+        <div id="exodusLocked" style="display:none">
+          <div class="status-locked">🔴 WEEKEND ONLY</div>
+          <div class="weekend-locked">
+            <div class="wl-label">Opens In</div>
+            <div class="cd-wrap">
+              <div class="cd-block"><div class="cd-num" id="cdD">00</div><div class="cd-unit">Days</div></div>
+              <div class="cd-sep">:</div>
+              <div class="cd-block"><div class="cd-num" id="cdH">00</div><div class="cd-unit">Hrs</div></div>
+              <div class="cd-sep">:</div>
+              <div class="cd-block"><div class="cd-num" id="cdM">00</div><div class="cd-unit">Mins</div></div>
+              <div class="cd-sep">:</div>
+              <div class="cd-block"><div class="cd-num" id="cdS">00</div><div class="cd-unit">Secs</div></div>
+            </div>
+          </div>
+          <button class="course-btn dis" disabled>Returns Saturday</button>
+        </div>
+      </div>
+
+      <div class="course-card reveal">
+        <div class="cn">02 / 05</div><span class="ce">🪖📁</span>
+        <div class="cname">Believers Recruitment Contract</div>
+        <div class="cp">$346.99</div>
+        <div class="commission">Affiliate earns: <span>$135.33</span></div>
+        <a href="#contact" class="course-btn">Enroll Now</a>
+      </div>
+
+      <div class="course-card reveal">
+        <div class="cn">03 / 05</div><span class="ce">⛓️💣</span>
+        <div class="cname">Suicide Squad Army Suit</div>
+        <div class="cp">$781.99</div>
+        <div class="commission">Affiliate earns: <span>$304.98</span></div>
+        <a href="#contact" class="course-btn">Enroll Now</a>
+      </div>
+
+      <div class="course-card reveal">
+        <div class="cn">04 / 05</div><span class="ce">🌋👺</span>
+        <div class="cname">Tyler's Last Words</div>
+        <div class="cp">$999.99</div>
+        <div class="commission">Affiliate earns: <span>$390.00</span></div>
+        <a href="#contact" class="course-btn">Enroll Now</a>
+      </div>
+
+      <div class="course-card coming reveal">
+        <div class="cn">05 / 05</div><span class="ce">🧬✅</span>
+        <div class="cname">The Helix AI Bot Beater</div>
+        <div class="cbadge badge-soon">Coming Soon</div>
+        <div class="cp">$5,000.00</div>
+        <div class="commission">Affiliate earns: <span>$1,950.00</span></div>
+        <button class="course-btn dis" disabled>Notify Me</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="affiliate">
+  <div class="si">
+    <div class="reveal">
+      <div class="sl">Make Money</div>
+      <h2 class="st">Affiliate Program</h2>
+      <p class="sd">Sign up, get your unique referral link, and earn 39% on every course sale you drive.</p>
+    </div>
+    <div class="aff-grid">
+      <div class="reveal">
+        <div class="aff-box green-b">
+          <div class="aff-box-title">Your Commission Rate</div>
+          <div class="aff-big">39%</div>
+          <div class="aff-sub-label">Per Sale · All Courses · Paid Today</div>
+          <div class="aff-desc">Every course you refer earns you 39% of the sale price — paid directly. No cap. No expiration.</div>
+        </div>
+        <div class="aff-box gold-b">
+          <div class="aff-box-title">Earnings Per Sale</div>
+          <div style="margin-top:12px">
+            <div class="earn-row"><span>Believers Exodus (LTO)</span><span class="earn-val">$27.73</span></div>
+            <div class="earn-row"><span>Recruitment Contract</span><span class="earn-val">$135.33</span></div>
+            <div class="earn-row"><span>Army Suit</span><span class="earn-val">$304.98</span></div>
+            <div class="earn-row"><span>Tyler's Last Words</span><span class="earn-val">$390.00</span></div>
+            <div class="earn-row"><span>Helix AI Bot Beater</span><span class="earn-val">$1,950.00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div id="affSignup">
+          <div class="form-title">Become An Affiliate</div>
+          <p class="form-sub">Fill this out — your referral link is generated instantly and your signup goes straight to RichoffWarInc.</p>
+          <div class="form-group"><label class="form-label">Full Name</label><input class="form-input gi" type="text" id="affName" placeholder="Your full name"></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input gi" type="email" id="affEmail" placeholder="your@email.com"></div>
+          <div class="form-group"><label class="form-label">Discord Username</label><input class="form-input gi" type="text" id="affDiscord" placeholder="e.g. yourname#0000"></div>
+          <div class="form-group">
+            <label class="form-label">How Will You Promote?</label>
+            <select class="form-select gi" id="affMethod">
+              <option value="" disabled selected>Select promo method...</option>
+              <option>Social Media (Instagram / TikTok / Twitter)</option>
+              <option>Discord Communities</option>
+              <option>YouTube / Content Creation</option>
+              <option>Word of Mouth / Personal Network</option>
+              <option>Email / Newsletter</option>
+              <option>Multiple Channels</option>
+            </select>
+          </div>
+          <button class="fbtn-green" id="affBtn" onclick="registerAffiliate()">GET MY REFERRAL LINK</button>
+        </div>
+        <div id="affDash" class="aff-dash">
+          <div class="dash-welcome">Welcome, <span id="dashName">Affiliate</span> 🔥</div>
+          <div class="dash-stats">
+            <div class="dstat"><div class="dstat-n" id="stClicks">0</div><div class="dstat-l">Clicks</div></div>
+            <div class="dstat"><div class="dstat-n" id="stRefs">0</div><div class="dstat-l">Referrals</div></div>
+            <div class="dstat"><div class="dstat-n gn" id="stEarned">$0.00</div><div class="dstat-l">Earned</div></div>
+          </div>
+          <div class="dash-link-box">
+            <div class="dll">Your Referral Link</div>
+            <div class="link-row">
+              <div class="link-val" id="refLink"></div>
+              <button class="copy-btn" id="copyBtn" onclick="copyLink()">COPY</button>
+            </div>
+          </div>
+          <div class="dash-refs">
+            <div class="dr-hdr">Recent Referrals</div>
+            <div id="refList"><div class="dr-empty">No referrals yet — share your link to start earning</div></div>
+          </div>
+          <div style="margin-top:14px;text-align:center">
+            <a href="https://discord.gg/sJ2vTn7QWp" target="_blank" style="font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:var(--discord);text-decoration:none">JOIN DISCORD FOR AFFILIATE SUPPORT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="si">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="sl">Direct Line</div>
+        <div class="ci-title">Get In Contact</div>
+        <p class="ci-sub">Questions about a course? Ready to invest? We respond to every serious inquiry.</p>
+        <div class="c-items">
+          <a href="mailto:richoffwarinc@icloud.com" class="c-item">
+            <div class="c-icon">📧</div>
+            <div><div class="c-label">Email</div><div class="c-val">richoffwarinc@icloud.com</div></div>
+          </a>
+          <a href="tel:+18763884302" class="c-item">
+            <div class="c-icon">📱</div>
+            <div><div class="c-label">Phone / WhatsApp</div><div class="c-val">+1 (876) 388-4302</div></div>
+          </a>
+          <a href="https://instagram.com/richoffwar.inc" target="_blank" rel="noopener" class="c-item">
+            <div class="c-icon">📲</div>
+            <div><div class="c-label">Instagram</div><div class="c-val">@richoffwar.inc</div></div>
+          </a>
+          <a href="https://discord.gg/sJ2vTn7QWp" target="_blank" rel="noopener" class="c-item" style="border-left-color:var(--discord)">
+            <div class="c-icon">💬</div>
+            <div><div class="c-label">Discord — Meechland Inc</div><div class="c-val">discord.gg/sJ2vTn7QWp</div></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal" id="enroll">
+        <div class="sl">Interest Form</div>
+        <div class="form-title">I Want In</div>
+        <p class="form-sub">Fill this out and we will reach out with enrollment next steps personally.</p>
+        <div id="leadForm">
+          <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" id="fname" placeholder="Your full name"></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" id="femail" placeholder="your@email.com"></div>
+          <div class="form-group">
+            <label class="form-label">Course You Are Interested In</label>
+            <select class="form-select" id="fcourse">
+              <option value="" disabled selected>Select a course...</option>
+              <option>Believers Exodus Course — $71.11 (LTO)</option>
+              <option>Believers Recruitment Contract — $346.99</option>
+              <option>Suicide Squad Army Suit — $781.99</option>
+              <option>Tyler's Last Words — $999.99</option>
+              <option>The Helix AI Bot Beater — $5,000 (Notify Me)</option>
+            </select>
+          </div>
+          <button class="fbtn-gold" id="leadBtn" onclick="submitLead()">SUBMIT INTEREST</button>
+        </div>
+        <div class="f-success gold-s" id="formSuccess">
+          <div class="si-icon">✅</div>
+          <h3>You Are On The List</h3>
+          <p>We received your info and will be in touch shortly. Make sure you have joined the Discord — that is where onboarding happens.</p>
+          <div style="margin-top:20px">
+            <a href="https://discord.gg/sJ2vTn7QWp" target="_blank" class="btn btn-discord" style="font-size:10px;padding:12px 20px">Join Meechland Inc</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><span>Richoff</span>WarInc</div>
+  <div class="footer-tag">Arm Your Mind. Elevate Your Empire.</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#community">Community</a>
+    <a href="#courses">Courses</a>
+    <a href="#affiliate">Affiliates</a>
+    <a href="#contact">Contact</a>
+    <a href="https://discord.gg/sJ2vTn7QWp" target="_blank">Discord</a>
+  </div>
+  <div class="footer-copy">2025 RichoffWarInc — All Rights Reserved</div>
+</footer>
+
+<script>
+var FORMSPREE = 'https://formspree.io/f/xgonvewz';
+
+// Scroll reveal
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){
+    if(e.isIntersecting){setTimeout(function(){e.target.classList.add('visible')},i*80);obs.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+// Weekend lock
+function getNextSaturday(){
+  var now=new Date();
+  var day=now.getDay();
+  var daysUntil=(6-day+7)%7;
+  if(daysUntil===0) daysUntil=7;
+  var next=new Date(now);
+  next.setDate(now.getDate()+daysUntil);
+  next.setHours(0,0,0,0);
+  return next;
+}
+function updateExodus(){
+  var now=new Date();
+  var day=now.getDay();
+  var isWeekend=(day===0||day===6);
+  var openEl=document.getElementById('exodusOpen');
+  var lockEl=document.getElementById('exodusLocked');
+  if(!openEl||!lockEl) return;
+  if(isWeekend){
+    openEl.style.display='block';
+    lockEl.style.display='none';
+  } else {
+    openEl.style.display='none';
+    lockEl.style.display='block';
+    var target=getNextSaturday();
+    var diff=target-now;
+    if(diff>0){
+      var d=Math.floor(diff/(1000*60*60*24));
+      var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+      var m=Math.floor((diff%(1000*60*60))/(1000*60));
+      var s=Math.floor((diff%(1000*60))/1000);
+      document.getElementById('cdD').textContent=String(d).padStart(2,'0');
+      document.getElementById('cdH').textContent=String(h).padStart(2,'0');
+      document.getElementById('cdM').textContent=String(m).padStart(2,'0');
+      document.getElementById('cdS').textContent=String(s).padStart(2,'0');
+    }
+  }
+}
+updateExodus();
+setInterval(updateExodus,1000);
+
+// Lead form
+function submitLead(){
+  var name=document.getElementById('fname').value.trim();
+  var email=document.getElementById('femail').value.trim();
+  var course=document.getElementById('fcourse').value;
+  if(!name||!email||!course){alert('Please fill in all fields.');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email address.');return;}
+  var btn=document.getElementById('leadBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span>SENDING...';
+  var ref='';try{ref=sessionStorage.getItem('riw_ref')||'';}catch(e){}
+  fetch(FORMSPREE,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'New Course Enrollment Interest — RichoffWarInc',type:'Course Enrollment',name:name,email:email,course:course,referred_by:ref||'Direct',submitted:new Date().toLocaleString()})
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('leadForm').style.display='none';
+      document.getElementById('formSuccess').style.display='block';
+    } else {throw new Error('fail');}
+  }).catch(function(){
+    btn.disabled=false;btn.innerHTML='SUBMIT INTEREST';
+    alert('Something went wrong. Please email richoffwarinc@icloud.com directly.');
+  });
+}
+
+// Affiliate signup
+function genCode(name){
+  var clean=name.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,8);
+  var rand=Math.random().toString(36).slice(2,6);
+  return clean+rand;
+}
+function registerAffiliate(){
+  var name=document.getElementById('affName').value.trim();
+  var email=document.getElementById('affEmail').value.trim();
+  var discord=document.getElementById('affDiscord').value.trim();
+  var method=document.getElementById('affMethod').value;
+  if(!name||!email||!discord||!method){alert('Please fill in all fields.');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email address.');return;}
+  var btn=document.getElementById('affBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner spinner-w"></span>REGISTERING...';
+  var code=genCode(name);
+  var base=window.location.href.split('?')[0].replace(/#.*/,'');
+  var refLink=base+'?ref='+code;
+  fetch(FORMSPREE,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'New Affiliate Signup — RichoffWarInc',type:'Affiliate Signup',name:name,email:email,discord:discord,promo_method:method,referral_code:code,referral_link:refLink,commission:'39%',joined:new Date().toLocaleString()})
+  }).then(function(r){
+    if(r.ok){
+      try{
+        var affs=JSON.parse(localStorage.getItem('riw_affiliates')||'[]');
+        affs.push({name:name,email:email,discord:discord,method:method,code:code,joined:new Date().toISOString(),referrals:[],earned:0,clicks:0});
+        localStorage.setItem('riw_affiliates',JSON.stringify(affs));
+        localStorage.setItem('riw_my_code',code);
+        localStorage.setItem('riw_my_name',name);
+      }catch(e){}
+      document.getElementById('affSignup').style.display='none';
+      showDash(name,code,refLink,[],0,0);
+    } else {throw new Error('fail');}
+  }).catch(function(){
+    btn.disabled=false;btn.innerHTML='GET MY REFERRAL LINK';
+    alert('Something went wrong. Please contact richoffwarinc@icloud.com.');
+  });
+}
+function showDash(name,code,refLink,referrals,clicks,earned){
+  document.getElementById('dashName').textContent=name.split(' ')[0];
+  document.getElementById('refLink').textContent=refLink;
+  document.getElementById('stClicks').textContent=clicks;
+  document.getElementById('stRefs').textContent=referrals.length;
+  document.getElementById('stEarned').textContent='$'+earned.toFixed(2);
+  var list=document.getElementById('refList');
+  if(!referrals.length){
+    list.innerHTML='<div class="dr-empty">No referrals yet — share your link to start earning</div>';
+  } else {
+    list.innerHTML=referrals.map(function(r){return '<div class="dr-row"><div><div class="dr-name">'+r.name+'</div><div class="dr-course">'+r.course+'</div></div><div class="dr-earn">+$'+r.earn.toFixed(2)+'</div></div>';}).join('');
+  }
+  document.getElementById('affDash').classList.add('on');
+}
+function copyLink(){
+  var link=document.getElementById('refLink').textContent;
+  var btn=document.getElementById('copyBtn');
+  var done=function(){btn.textContent='COPIED!';btn.classList.add('copied');setTimeout(function(){btn.textContent='COPY';btn.classList.remove('copied');},2200);};
+  if(navigator.clipboard){navigator.clipboard.writeText(link).then(done).catch(function(){fallbackCopy(link,done);});}
+  else{fallbackCopy(link,done);}
+}
+function fallbackCopy(text,cb){
+  var el=document.createElement('textarea');
+  el.value=text;el.style.position='fixed';el.style.opacity='0';
+  document.body.appendChild(el);el.select();document.execCommand('copy');
+  document.body.removeChild(el);cb();
+}
+// Restore dashboard
+try{
+  var myCode=localStorage.getItem('riw_my_code');
+  var myName=localStorage.getItem('riw_my_name');
+  if(myCode&&myName){
+    var base2=window.location.href.split('?')[0].replace(/#.*/,'');
+    var rl=base2+'?ref='+myCode;
+    var affs2=JSON.parse(localStorage.getItem('riw_affiliates')||'[]');
+    var me=affs2.find(function(a){return a.code===myCode;})||{};
+    document.getElementById('affSignup').style.display='none';
+    showDash(myName,myCode,rl,me.referrals||[],me.clicks||0,me.earned||0);
+  }
+}catch(e){}
+// Track ref param
+try{
+  var ref2=new URLSearchParams(window.location.search).get('ref');
+  if(ref2){
+    sessionStorage.setItem('riw_ref',ref2);
+    var affs3=JSON.parse(localStorage.getItem('riw_affiliates')||'[]');
+    var idx=affs3.findIndex(function(a){return a.code===ref2;});
+    if(idx>-1){affs3[idx].clicks=(affs3[idx].clicks||0)+1;localStorage.setItem('riw_affiliates',JSON.stringify(affs3));}
+  }
+}catch(e){}
+</script>
+</body>
+</html>
